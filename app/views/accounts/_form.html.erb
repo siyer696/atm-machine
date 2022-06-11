@@ -11,26 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
   </div>
 
-  <div class="field">
+  <div class="field dropdown form-group dropdown show">
     <%= form.label :account_type %>
-    <%= form.select :account_type, ["Current", "Savings"] %>
+    <%= form.select :account_type, ["Current", "Savings"], class: "form-control" %>
   </div>
 
 <% if editBalance %>
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :balance %>
-    <%= form.number_field :balance %>
+    <%= form.number_field :balance, class: "form-control", placeholder: "Balance" %>
   </div>
 <% else %>
   <%= hidden_field_tag 'balance', :balance  %>
 <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary"  %>
   </div>
 <% end %>

@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account Number:</strong>
+  <%= @account.id %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -11,8 +15,8 @@
 </p>
 
 
-<%= link_to 'Show Balance', show_balance_account_path(@account) %>
-<%= link_to 'Deposit', deposit_account_path(@account) %>   |
-<%= link_to 'Withdraw', withdraw_account_path(@account) %> |
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Show Balance', show_balance_account_path(@account), class: "btn btn-secondary" %>  |
+<%= link_to 'Deposit', deposit_account_path(@account), class: "btn btn-secondary" %>   |
+<%= link_to 'Withdraw', withdraw_account_path(@account), class: "btn btn-secondary" %> |
+<%= link_to 'Edit', edit_account_path(@account), class: "btn btn-secondary" %> |
+<%= link_to 'Back', accounts_path, class: "btn btn-dark" %>

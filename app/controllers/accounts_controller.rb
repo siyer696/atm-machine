@@ -45,6 +45,7 @@ class AccountsController < ApplicationController
   # POST /accounts/1/transaction
   def transaction
     puts "Inside transaction controller"
+    puts params
     @account = Account.find(params[:id])
     amount = params[:amount].to_i
     transaction_type = params[:transaction_type]

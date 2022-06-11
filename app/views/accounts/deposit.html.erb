@@ -1,23 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-Please Enter Amount To Deposit
-
-<%= @account.id %>
+<h3>Please Enter Amount To Deposit</h3>
 
 <form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="eW9v9G9R_yEgtofh5FVoqWor97xInxzeaOZcuj6pYNITsvgFlWJekk8HZz4RqoJp05u9Lx17n2sMsAewWcqy0A" autocomplete="off">
 
-  <div class="field">
-    <label for="amount">Amount</label>
-    <input type="number" name="amount" id="amount">
+  <div class="field form-group">
+    <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount" min="1" required>
   </div>
 
   <input type="hidden" id="transaction_type" name="transaction_type" value="DEPOSIT">
 
   <div class="actions">
-    <input type="submit" name="commit" value="Deposit">
+    <input type="submit" name="commit" value="Deposit"  class="btn btn-secondary"  >
   </div>
 </form>
 
+<br/>
 
-
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Back', accounts_path, class: "btn btn-dark" %>
