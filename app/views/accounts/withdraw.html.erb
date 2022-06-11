@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+Please Enter Amount To Withdraw
+
+<%= @account.id %>
+
+<form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="eW9v9G9R_yEgtofh5FVoqWor97xInxzeaOZcuj6pYNITsvgFlWJekk8HZz4RqoJp05u9Lx17n2sMsAewWcqy0A" autocomplete="off">
+
+  <div class="field">
+    <label for="amount">Amount</label>
+    <input type="number" name="amount" id="amount">
+  </div>
+
+  <input type="hidden" id="transaction_type" name="transaction_type" value="WITHDRAW">
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Withdraw">
+  </div>
+</form>
+
+
+
+<%= link_to 'Back', accounts_path %>
