@@ -54,9 +54,9 @@ sudo apt install sqlite3
 3. Install Ruby Gems
 
 - Download Ruby Gems from here - http://rubygems.org/pages/download
-- Extract the ruby gems tar file - tar xvfz rubygems-1.3.7.tgz
-- If you previously had RubyGems installed via apt - sudo apt-get remove rubygems
-- Install Ruby Gems - cd rubygems-1.3.7 && sudo ruby setup.rb
+- Extract the ruby gems tar file - `tar xvfz rubygems-1.3.7.tgz`
+- If you previously had RubyGems installed via apt - `sudo apt-get remove rubygems`
+- Install Ruby Gems - `cd rubygems-1.3.7 && sudo ruby setup.rb`
 
 
 4. Install Yarn

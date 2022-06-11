@@ -30,6 +30,10 @@
   <%= hidden_field_tag 'balance', :balance  %>
 <% end %>
 
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :account_user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-secondary"  %>
   </div>

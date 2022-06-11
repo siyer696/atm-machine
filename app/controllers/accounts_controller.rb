@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: %i[ show edit update destroy]
+  before_action :set_account, only: %i[ show edit update destroy withdraw deposit show_balance transaction ]
 
   #index show new are collection actions
   #show edit update destroy are member actions
@@ -26,27 +26,22 @@ class AccountsController < ApplicationController
   # GET /accounts/1/show_balance
   def show_balance
     puts "Inside show_balance controller"
-    @account = Account.find(params[:id])
   end
 
 
   # GET /accounts/1/withdraw
   def withdraw
     puts "Inside withdraw controller"
-    @account = Account.find(params[:id])
   end
 
   # GET /accounts/1/deposit
   def deposit
     puts "Inside deposit controller"
-    @account = Account.find(params[:id])
   end
 
   # POST /accounts/1/transaction
   def transaction
     puts "Inside transaction controller"
-    puts params
-    @account = Account.find(params[:id])
     amount = params[:amount].to_i
     transaction_type = params[:transaction_type]
 
@@ -75,7 +70,6 @@ class AccountsController < ApplicationController
 
   # POST /accounts or /accounts.json
   def create
-    puts account_params
     @account = Account.new(account_params)
 
     respond_to do |format|
@@ -107,7 +101,7 @@ class AccountsController < ApplicationController
     @account.destroy
 
     respond_to do |format|
-      format.html { redirect_to accounts_url, notice: "Account was successfully destroyed." }
+      format.html { redirect_to accounts_url, notice: "Account was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -120,6 +114,6 @@ class AccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def account_params
-      params.require(:account).permit(:name, :account_type, :balance)
+      params.require(:account).permit(:name, :account_type, :balance, :user_id)
     end
 end
