@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Account Type</th>
+      <th>User Id</th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -14,14 +15,17 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
+        <% if account.user == current_user %>
         <td><%= account.name %></td>
         <td><%= account.account_type %></td>
+        <td><%= account.user_id %></td>
         <td><%= link_to 'Show', account %></td>
         <td><%= link_to 'Show Balance', show_balance_account_path(account) %></td>
         <td><%= link_to 'Deposit', deposit_account_path(account) %></td>
         <td><%= link_to 'Withdraw', withdraw_account_path(account) %></td>
         <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', account, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

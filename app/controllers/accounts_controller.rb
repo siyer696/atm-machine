@@ -1,7 +1,9 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: %i[ show edit update destroy withdraw deposit show_balance transaction ]
+  before_action :set_account, only: %i[ :show, :edit, :update, :destroy, :withdraw, :deposit, :show_balance, :transaction ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [  :show, :edit, :update, :destroy, :withdraw, :deposit, :show_balance, :transaction ]
 
-  #index show new are collection actions
+  #index show new are collection actions 
   #show edit update destroy are member actions
   # GET /accounts or /accounts.json
   def index
@@ -16,7 +18,8 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    # @account = Account.new
+    @account = current_user.accounts.build
   end
 
   # GET /accounts/1/edit
@@ -70,7 +73,8 @@ class AccountsController < ApplicationController
 
   # POST /accounts or /accounts.json
   def create
-    @account = Account.new(account_params)
+    # @account = Account.new(account_params)
+    @account = current_user.accounts.build(account_params)
 
     respond_to do |format|
       if @account.save
@@ -105,6 +109,14 @@ class AccountsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def correct_user
+    @account = current_user.accounts.find_by(id: params[:id])
+    if @account == nil
+      redirect_to accounts_path, notice: "Not Authorized to Edit This Account"
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
