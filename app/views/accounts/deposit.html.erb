@@ -1,6 +1,8 @@
 <h3>Please Enter Amount To Deposit</h3>
 
-<form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="eW9v9G9R_yEgtofh5FVoqWor97xInxzeaOZcuj6pYNITsvgFlWJekk8HZz4RqoJp05u9Lx17n2sMsAewWcqy0A" autocomplete="off">
+<form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post">
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
   <div class="field form-group">
     <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount" min="1" required>

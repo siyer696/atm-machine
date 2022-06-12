@@ -110,12 +110,7 @@ class AccountsController < ApplicationController
     end
   end
 
-  def correct_user
-    @account = current_user.accounts.find_by(id: params[:id])
-    if @account == nil
-      redirect_to accounts_path, notice: "Not Authorized to Edit This Account"
-    end
-  end
+
 
 
   private
@@ -127,5 +122,13 @@ class AccountsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def account_params
       params.require(:account).permit(:name, :account_type, :balance, :user_id)
+    end
+
+    # Check if the user is correct user - authentication
+    def correct_user
+      @account = current_user.accounts.find_by(id: params[:id])
+      if @account == nil
+        redirect_to accounts_path, notice: "Not Authorized to Edit This Account"
+      end
     end
 end
