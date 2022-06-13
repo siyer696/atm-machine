@@ -1,22 +1,28 @@
-
-
-<h3>Please Enter Amount To Withdraw</h3>
-
-<form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post">
-
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-
-  <div class="field form-group">
-    <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount" min="1" required>
+<div class="card">
+  <div class="card-header">
+    <h2>Withdraw</h2>
   </div>
+  <div class="card-body">
+    <h5>Please Enter Amount To Withdraw</h5>
 
-  <input type="hidden" id="transaction_type" name="transaction_type" value="WITHDRAW">
+    <form action="/accounts/<%= @account.id %>/transaction" accept-charset="UTF-8" method="post">
 
-  <div class="actions">
-    <input type="submit" name="commit" value="Withdraw" class="btn btn-secondary" >
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+      <div class="field form-group">
+        <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount" min="1" required>
+      </div>
+
+      <input type="hidden" id="transaction_type" name="transaction_type" value="WITHDRAW">
+
+      <div class="actions">
+        <input type="submit" name="commit" value="Withdraw" class="btn btn-secondary" >
+      </div>
+    </form>
+
+
   </div>
-</form>
-
+</div>
 
 <br/>
 <%= link_to 'Back', accounts_path, class: "btn btn-dark" %>

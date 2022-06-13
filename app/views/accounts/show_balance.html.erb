@@ -1,4 +1,12 @@
 <br/>
-<h3>Your Account Balance is Rs. <%= @account.balance %> </h3>
+<div class="card">
+  <div class="card-header">
+    <h2>Account Balance<h2>
+  </div>
+  <div class="card-body">
+  <h5>Your Account Balance is Rs. <%= @account.balance %> </h5>
+  </div>
+</div>
+
 <br/> <br/>
 <%= link_to 'Back', accounts_path, class: "btn btn-dark" %>

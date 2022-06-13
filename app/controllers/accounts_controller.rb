@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[ :show, :edit, :update, :destroy, :withdraw, :deposit, :show_balance, :transaction ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :correct_user, only: [  :show, :edit, :update, :destroy, :withdraw, :deposit, :show_balance, :transaction ]
 
   #index show new are collection actions 
@@ -12,8 +12,6 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1 or /accounts/1.json
   def show
-    puts "Account Type is"
-    puts @account.account_type
   end
 
   # GET /accounts/new

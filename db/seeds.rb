@@ -7,16 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-20.times do |i|
-    puts "Creating Account #{1}"
-    Account.create(
-        name: "Account #{i}",
-        account_type: "CURRENT",
-        balance: i
-    )
-end
+#creating user1
+user = User.create(:email => 'test@sample.com', :password => 'password', :password_confirmation => 'password' )
+user.save
 
-Account.all.each do |account|
-    account.transacs.create(transaction_type: "CREDIT", amount: 10)
-    account.transacs.create(transaction_type: "DEBIT", amount: 10)
-end
+#creating account 1
+user.accounts.create(:name => 'Bussiness', :account_type => 'Current', :balance => 2200)
+#creating account 2
+user.accounts.create(:name => 'Personal', :account_type => 'Savings', :balance => 100)
+
+
+
+#creating user2
+user = User.create(:email => 'test1@sample.com', :password => 'password', :password_confirmation => 'password' )
+user.save
+
+#creating account 3
+user.accounts.create(:name => 'Investment', :account_type => 'Savings', :balance => 2200)
+#creating account 4
+user.accounts.create(:name => 'Kids', :account_type => 'Savings', :balance => 100)
+
+
+
+
