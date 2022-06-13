@@ -1,6 +1,4 @@
 # ATM Machine Web App
-[![Build status][shield-build]](#)
-[![Code coverage][shield-coverage]](#)
 [![Dependencies][shield-dependencies]](#)
 [![snyk][snyk-vulnerabilities]](https://snyk.io/test/npm/requirements)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
